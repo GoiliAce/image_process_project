@@ -10,7 +10,7 @@ def main():
         file_bytes = np.asarray(bytearray(uploaded_image.read()), dtype=np.uint8)
         image = cv2.imdecode(file_bytes, 1)
         img, made, mssv, score, num_fail, num_none = heandle(image)
-        if img:
+        if made:
             st.image(img, caption="Result")
             st.write('Mã đề: ', made)
             st.write('MSSV: ', mssv)
@@ -24,7 +24,7 @@ def main():
         file_bytes = np.asarray(bytearray(camera_image.read()), dtype=np.uint8)
         image = cv2.imdecode(file_bytes, 1)
         img, made, mssv, score, num_fail, num_none = heandle(image)
-        if img:
+        if made:
             st.image(img, caption="Result")
             st.write('Mã đề: ', made)
             st.write('MSSV: ', mssv)
