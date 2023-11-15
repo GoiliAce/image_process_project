@@ -233,8 +233,12 @@ def heandle(image):
             cv2.rectangle(image,(col,row),(col+w,row+h), 0, 2)
 
     import json
-    with open('{}.json'.format(info['Khung mã đề'])) as f:
-        result = json.load(f)
+    try:
+
+        with open('{}.json'.format(info['Khung mã đề'])) as f:
+            result = json.load(f)
+    except:
+        return None, None, None, None, None, None
 
     predict, cnt = get_predict_answer(frame_coordinates['Khung đáp án'].copy(), thresh_frames['Khung đáp án'])
     score = get_score(result, predict)
